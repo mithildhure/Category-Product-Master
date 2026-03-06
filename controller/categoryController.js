@@ -57,13 +57,20 @@ const updateCategory = (req,resp)=>{
 const deleteCategory = (req,resp)=>{
     const id = req.params.id;
     const sql = "delete from categories where c_id=?";
-    db.query(sql,[id],(err,result)=>{
-        if(err){
+    db.query("delete from products where c_id = ?",[id],(err,result)=>{
+        if (err) {
             throw err;
-        }else {
-            resp.redirect("/categories");
+        } else {
+            db.query(sql,[id],(err,result)=>{
+                if(err){
+                    throw err;
+                }else {
+                    resp.redirect("/categories");
         }
     })
+        }
+    });
+    
 }
 
 module.exports = {getCategories, addCategory, fetchCategoryId, updateCategory, deleteCategory};
