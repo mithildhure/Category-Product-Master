@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Category Master</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+        
+        <style>
+            body {
+                min-height: 100dvh;
+                display: flex;
+                flex-direction: column;
+                }
+
+            main {
+                flex: 1;
+                }
+
+            footer {
+                background-color: #212529;
+                color: #adb5bd;
+                padding: 1.2rem 0;
+                text-align: center;
+                font-size: 0.9rem;
+                }
+
+            footer p {
+                margin: 0;
+                line-height: 1.8;
+                }
+
+            footer .footer-name {
+                color: #fff;
+                font-weight: 600;
+                }
+
+            footer .footer-copy {
+                color: #6c757d;
+                font-size: 0.8rem;
+                }
+
+        </style>
+        
+    </head>
+
+    <body>
+        <header>
+            <!-- place navbar here -->
+             <nav
+                class="navbar navbar-expand-sm p-3 navbar-dark bg-dark"
+             >
+                <div class="container">
+                    <a class="navbar-brand" href="/categories">Category Master</a>
+                    <button
+                        class="navbar-toggler d-lg-none"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapsibleNavId"
+                        aria-controls="collapsibleNavId"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="collapsibleNavId">
+                        <ul class="navbar-nav me-auto mt-2 mt-lg-0">    
+                            <li class="nav-item">
+                                <a class="nav-link" href="/products">Products</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+             </nav>
+             
+        </header>
+        <main>
+
+            <div
+                class="container text-right d-flex flex-row-reverse my-3 p-2"
+            >
+            
+                <div class="card bg-light p-3">
+                    
+                    <h5>Add New Category</h5>
+                    <form action="/categories/addC" method="POST">
+                        <div class="input-group">
+                        <input class="rounded" type="text" name="c_name" required> &nbsp;
+                        <button
+                            type="submit"
+                            class="btn btn-success rounded"
+                        >
+                            Add
+                        </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+            <div
+                class="container my-3 p-2"
+            >
+                <div
+                    class="table-responsive rounded"
+                >
+                    <table
+                        class="table table-light"
+                    >
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Category Name</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% if (categories.length === 0) { %>
+                                <tr>
+                                    <td colspan="5" class="text-center text-muted py-4">No categories found.</td>
+                                </tr>
+                            <% } %>
+                            <% categories.forEach(c => { %>
+                             
+                            <tr class="">
+                                <td scope="row"><h5><%= c.c_id %></h5></td>
+                                <td><h5><%= c.c_name %></h5></td>
+                                <td class="d-flex gap-1">
+                                    
+                                    <a
+                                        name=""
+                                        id=""
+                                        class="btn btn-outline-warning"
+                                        href="/categories/editForm/<%= c.c_id %>"
+                                        role="button"
+                                        >Edit</a> 
+                                        &nbsp;
+                                     <form action="/categories/deleteC/<%= c.c_id %>" method="POST" onsubmit="return confirm('Are You Sure You want to delete ?')">
+                                        <button
+                                            type="submit"
+                                            class="btn btn-outline-danger"
+                                        >
+                                            Delete
+                                        </button>                                        
+                                     </form>   
+                                </td>
+                            </tr>
+
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div> 
+            </div>
+            
+        </main>
+        <!-- Bootstrap JavaScript Libraries -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+        <%- include('partials/footer') %>
+    </body>
+</html>
