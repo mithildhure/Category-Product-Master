@@ -11,6 +11,9 @@ app.use(express.urlencoded({extended:true}));
 
 app.use("/categories",croute);
 app.use("/products",proute);
+app.use((req,resp,next)=>{
+    resp.status(404).render('404');
+})
 
 app.listen(4000,()=>{
     console.log("Running");
