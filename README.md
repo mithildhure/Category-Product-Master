@@ -151,7 +151,7 @@ node app.js
 5. Open browser
 
 ```
-http://localhost:4000
+http://localhost:4000/categories
 ```
 
 ---
