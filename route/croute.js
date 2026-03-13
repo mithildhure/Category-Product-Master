@@ -3,10 +3,10 @@ const { getCategories, addCategory, deleteCategory, updateCategory, fetchCategor
 
 const croute = express.Router();
 
-croute.get("/",getCategories);
-croute.post("/addC",addCategory);
-croute.get("/editForm/:id",fetchCategoryId);
-croute.post("/editC/:id",updateCategory);
-croute.post("/deleteC/:id",deleteCategory);
+croute.get("/", getCategories);           
+croute.post("/addC", addCategory);            
+croute.get("/editForm/:id", fetchCategoryId); 
+croute.patch("/editC/:id", updateCategory);     
+croute.delete("/deleteC/:id", deleteCategory);    
 
 module.exports = croute;

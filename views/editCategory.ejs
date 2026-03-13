@@ -92,7 +92,7 @@
             
             <h3>Edit Category</h3>
 
-                <form action="/categories/editC/<%= category.c_id %>" method="POST">
+                <form action="/categories/editC/<%= category.c_id %>?_method=PATCH" method="POST">
 
                     <div class="form-floating mb-3">
                         <input
@@ -113,10 +113,9 @@
                     </button>
                     
                 </form>
-
+                
             </div>
             
-
         </main>
         <%- include('partials/footer') %>
         <!-- Bootstrap JavaScript Libraries -->

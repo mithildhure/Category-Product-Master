@@ -133,7 +133,7 @@
                                         >Edit</a>
                                         &nbsp;
                                         <form
-                                            action="/products/deleteP/<%= p.p_id %>"
+                                            action="/products/deleteP/<%= p.p_id %>?_method=DELETE"
                                             method="POST"
                                             onsubmit="return confirm('Are You Sure You want to delete?')"
                                         >

@@ -78,7 +78,7 @@
             <div class="container col-6 bg-light my-5 p-4 rounded">
                 <h3>Edit Product</h3>
 
-                <form action="/products/editP/<%= product.p_id %>" method="POST">
+                <form action="/products/editP/<%= product.p_id %>?_method=PATCH" method="POST">
 
                     <div class="form-floating mb-3">
                         <input

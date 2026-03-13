@@ -146,7 +146,7 @@
                                         role="button"
                                         >Edit</a> 
                                         &nbsp;
-                                     <form action="/categories/deleteC/<%= c.c_id %>" method="POST" onsubmit="return confirm('Are You Sure You want to delete ?')">
+                                     <form action="/categories/deleteC/<%= c.c_id %>?_method=DELETE" method="POST" onsubmit="return confirm('Are You Sure You want to delete ?')">
                                         <button
                                             type="submit"
                                             class="btn btn-outline-danger"
