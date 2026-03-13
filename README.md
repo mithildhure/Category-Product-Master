@@ -118,16 +118,16 @@ project
 * `GET /category` → Get all categories
 * `POST /category/addC` → Add category
 * `GET /category/editForm/:id` → Get specific category
-* `POST /category/editC/:id` → Update category
-* `POST /category/deleteC/:id` → Delete category
+* `PATCH /category/editC/:id` → Update category
+* `DELETE /category/deleteC/:id` → Delete category
 
 ### Product Routes
 
 * `GET /products` → Get products with pagination
 * `POST /products/addP` → Add product
 * `GET /products/editForm/:id` → Get specific product
-* `POST /products/editP/:id` → Update product
-* `POST /products/deleteP/:id` → Delete product
+* `PATCH /products/editP/:id` → Update product
+* `DELETE /products/deleteP/:id` → Delete product
 
 ---
 
@@ -153,7 +153,7 @@ node app.js
 ```
 http://localhost:4000/categories 
 OR
-http://localhost:4000/categories
+http://localhost:4000/products
 ```
 
 ---
@@ -165,6 +165,7 @@ This project demonstrates core backend concepts including:
 * Node.js + Express application structure
 * MVC-based organization (Controllers, Routes, Views)
 * CRUD operations with relational databases
+* REST Conventions using GET, POST, PATCH and DELETE
 * SQL joins for relational data
 * Server-side pagination
 * Form handling using Express middleware
